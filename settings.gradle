@@ -1,3 +1,4 @@
 rootProject.name = 'microservices'
 include 'msc-ekserver'
+include 'msc-cfgserver'
 

@@ -3,4 +3,6 @@ spring:
     name: eureka
   cloud:
     config:
-      uri: ${CONFIG_SERVER_URL:http://localhost:8888}
+     server:
+       git:
+         uri: https://git.coding.net/tiangao/demo-config-server.git
