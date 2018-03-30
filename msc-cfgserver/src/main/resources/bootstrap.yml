@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: eureka
+  cloud:
+    config:
+     server:
+       git:
+         uri: https://git.coding.net/tiangao/demo-config-server.git
