@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: consulApp
+  cloud:
+    consul:
+      enabled: true
+      host: 49.4.1.167
+      port: 8500
+      config:
+        watch:
+          enabled: true
+        format: yaml
