@@ -1,0 +1,7 @@
+#基础镜像
+FROM nginx:latest
+
+COPY libs/ms-active /usr/share/nginx/html/ms-active
+COPY libs/ms-common /usr/share/nginx/html/ms-common
+USER root
+EXPOSE 80

@@ -1,0 +1,43 @@
+#子服务器docker一键环境安装功能 必须联网 依赖compose组件 1 war包导入到镜像中 2 db通过-v挂载到物理机本地磁盘
+version: "3"
+services:
+  #bi云端接口服务
+  miniserver:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: miniserver/ms_bi:v20180319
+    container_name: "ms_bi_20180319"
+    ports:
+      - "8810:8080"
+    networks:
+      - ms_bi_net
+    links:
+      - mongodb:mongo_20180319
+  mongodb:
+    restart: always
+    image: mongo:3.4.3
+    container_name: "mongo_20180319"
+    volumes:
+      - /mnt/config/mongod.conf.orig:/etc/mongod.conf.orig:ro
+      - /mnt/mongodb:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - ms_bi_net
+  frontserver:
+    restart: always
+    build:
+      context: .
+      dockerfile: DockerfileNginx
+    image: frontserver/ms_front:v20180319
+    container_name: "ms_front_20180319"
+    ports:
+      - "80:80"
+    networks:
+      - ms_front_net
+networks:
+  ms_bi_net:
+  ms_front_net:
+    #driver: "overlay" #非swarm manager无法建立虚拟网络
