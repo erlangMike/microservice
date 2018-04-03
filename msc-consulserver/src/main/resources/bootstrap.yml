@@ -9,4 +9,7 @@ spring:
       config:
         watch:
           enabled: true
+          delay: 1000
         format: yaml
+        prefix: configs
+        default-context: consulserver/dev
