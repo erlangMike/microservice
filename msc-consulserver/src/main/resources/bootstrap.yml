@@ -4,11 +4,13 @@ spring:
   cloud:
     consul:
       enabled: true
-      host: 49.4.1.167
+      host: localhost
       port: 8500
-      discovery:
-        healthCheckPath: /
-        healthCheckInterval: 5s
+#      discovery:
+#        healthCheckPath: /
+#        healthCheckInterval: 5s
+#        instance-id: msc-consulserver
+#        tags: foo-bar,baz
 #      config:
 #        watch:
 #          enabled: true
