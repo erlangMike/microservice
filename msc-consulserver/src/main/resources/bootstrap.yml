@@ -1,15 +1,18 @@
 spring:
   application:
-    name: consulApp
+    name: msc-consulserver
   cloud:
     consul:
       enabled: true
       host: 49.4.1.167
       port: 8500
-      config:
-        watch:
-          enabled: true
-          delay: 1000
-        format: yaml
-        prefix: configs
-        default-context: consulserver/dev
+      discovery:
+        healthCheckPath: /
+        healthCheckInterval: 5s
+#      config:
+#        watch:
+#          enabled: true
+#          delay: 1000
+#        format: yaml
+#        prefix: configs
+#        default-context: consulserver/dev

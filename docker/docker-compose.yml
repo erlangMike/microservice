@@ -6,7 +6,7 @@ services:
     restart: always
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ../msc-consulserver/docker/Dockerfile
     image: miniserver/ms_bi:v20180319
     container_name: "ms_bi_20180319"
     ports:
